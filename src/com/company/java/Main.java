@@ -1,20 +1,32 @@
 package com.company.java;
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
 	// write your code here
+        System.out.println("Testing, Hello World");
 
-        System.out.println("Welcome to the converter!");
-        System.out.println("Now lets begain!");
+        File input = new File("C:\\Users\\rgrub\\Desktop\\jonCook\\CsvConverter\\src\\csv\\SampleCsv.csv");
+        File output = new File("C:\\Users\\rgrub\\Desktop\\jonCook\\CsvConverter\\src\\csv\\output\\output.json");
 
-        System.out.println("Reading data from CSV: ");
-        ReadingCsv readCsv = new ReadingCsv();
-        readCsv.readCsv();
+        CsvSchema csvSchema = CsvSchema.builder().setUseHeader(true).build();
+        CsvMapper csvMapper = new CsvMapper();
 
+        // Read data from CSV file
+        List<Object> readAll = csvMapper.readerFor(Map.class).with(csvSchema).readValues(input).readAll();
 
-        System.out.println("Reading data from csv and converting it to java object:");
-        CsvPojo csvPojo = new CsvPojo();
-        csvPojo.csvPojo();
+        ObjectMapper mapper = new ObjectMapper();
+
+        // Write JSON formated data to output.json file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
+
+        // Write JSON formated data to stdout
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll));
     }
 }

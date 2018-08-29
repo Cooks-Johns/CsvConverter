@@ -1,0 +1,76 @@
+//
+//    public void convertCsvToJava() {
+//        String csvFileToRead = "/csv/SampleCsv.csv";
+//        BufferedReader br = null;
+//        String line = "";
+//        String splitBy = ",";
+//        List<CSV> csvList = new ArrayList<>();
+//
+//        try {
+//
+//            br = new BufferedReader(new FileReader(csvFileToRead));
+//            while ((line = br.readLine()) != null) {
+//
+//                // split on comma(',')
+//                String[] csv = line.split(splitBy);
+//
+//                // create car object to store values
+//                CsvPojo csvObject = new CsvPojo();
+//
+//                // add values from csv to car object
+//                csvObject.setTeamName(csv[0]);
+//                csvObject.setAppId(csv[1]);
+//                csvObject.setAppName(csv[2]);
+//                csvObject.setVulnerabilityId(csv[3]);
+//                csvObject.setVulnerabilityReference(csv[4]);
+//                csvObject.setSeverity(csv[5]);
+//                csvObject.setStatus(csv[6]);
+//                csvObject.setOpenDate(csv[7]);
+//                csvObject.setScanner(csv[8]);
+//                csvObject.setCweId(csv[9]);
+//                csvObject.setOwaspTopTen(csv[10]);
+//                csvObject.setPath(csv[11]);
+//                csvObject.setParameter(csv[12]);
+//                csvObject.setPayload(csv[13]);
+//                csvObject.setAttackSurfacePath(csv[14]);
+//                csvObject.setAttackString(csv[15]);
+//                csvObject.setAttackRequest(csv[16]);
+//                csvObject.setAttackResponse(csv[17]);
+//                csvObject.setScannerDetails(csv[18]);
+//                csvObject.setScannerRecommendation(csv[19]);
+//                csvObject.setRemediationTargetDate(csv[20]);
+//                csvObject.setApplicationTags(csv[21]);
+//                csvObject.setVulnerabilityTags(csv[22]);
+//
+//                // adding car objects to a list
+//                csvList.add(csvObject);
+//
+//            }
+//            // print values stored in carList
+//            printCsvList(csvList);
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (br != null) {
+//                try {
+//                    br.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    }
+//
+//    public void printCsvList(List<CSV> csvListToPrint) {
+//        for (int i = 0; i < csvListToPrint.size(); i++) {
+//            System.out.println("DG [year= " + csvListToPrint.get(i).getYear()
+//                    + " , make=" + csvListToPrint.get(i).getMake()
+//                    + " , model=" + csvListToPrint.get(i).getModel()
+//                    + " , description="
+//                    + csvListToPrint.get(i).getDescription() + " , price="
+//                    + csvListToPrint.get(i).getPrice() + "]");
+//        }
+//    }
