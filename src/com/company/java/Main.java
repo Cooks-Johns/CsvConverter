@@ -12,8 +12,8 @@ public class Main {
 	// write your code here
         System.out.println("Testing, Hello World");
 
-        File input = new File("C:\\Users\\rgrub\\Desktop\\jonCook\\CsvConverter\\src\\csv\\SampleCsv.csv");
-        File output = new File("C:\\Users\\rgrub\\Desktop\\jonCook\\CsvConverter\\src\\csv\\output\\output.json");
+        File input = new File("/Users/johnathoncook/IdeaProjects/CsvConverter/src/csv/Bodgeit.csv");
+        File output = new File("/Users/johnathoncook/IdeaProjects/CsvConverter/src/csv/output/build.json");
 
         CsvSchema csvSchema = CsvSchema.builder().setUseHeader(true).build();
         CsvMapper csvMapper = new CsvMapper();
