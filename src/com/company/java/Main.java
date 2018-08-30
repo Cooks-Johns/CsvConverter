@@ -51,6 +51,7 @@ public class Main {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        System.out.println("Finshed Reading CSV");
 
     }
 
